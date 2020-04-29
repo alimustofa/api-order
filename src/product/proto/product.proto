@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+service ProductService {
+    rpc List (ProductRequestList) returns (ProductList) {}
+    rpc UpdateQty (ProductRequestQuantity) returns (Product) {}
+}
+
+message Empty {}
+
+message Product {
+    int32 id = 1;
+    string name = 2;
+    int32 quantity = 3;
+}
+
+message ProductList {
+    repeated Product products = 1;
+}
+
+message ProductRequestQuantity {
+    int32 id = 1;
+    int32 quantity = 2;
+}
+
+message ProductRequestList {
+    int32 page = 1;
+    int32 size = 2;
+}
