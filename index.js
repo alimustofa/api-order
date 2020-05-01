@@ -3,6 +3,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const morgan = require('morgan')
 const port = process.env.PORT || 9001
 const app = express()
 
@@ -14,6 +15,7 @@ const OrderRoutes = require('./src/apiOrder/route')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(morgan('tiny'))
 
 app.get('/', async(req, res) => {
     res
