@@ -10,10 +10,9 @@ const Route = () => {
 
     // Order Service
     const OrderServiceObj = OrderService()
-
     const orderController = Controller(OrderServiceObj)
     
-    router.get('/', orderController.list)
+    router.get('/:type', orderController.list)
 
     return router
 }

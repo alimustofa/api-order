@@ -5,8 +5,9 @@ const protoLoader = require('@grpc/proto-loader');
 
 
 const Client = () => {
-    const protoPath = __dirname + '/proto/order.proto'
+    const protoPath = __dirname + '/proto/v1/order.proto'
     const protoOpts = {
+        longs: Number,
         keepCase: true,
         defaults: true,
         oneofs: true,
