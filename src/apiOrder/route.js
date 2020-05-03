@@ -12,7 +12,8 @@ const Route = () => {
     const OrderServiceObj = OrderService()
     const orderController = Controller(OrderServiceObj)
     
-    router.get('/:type', orderController.list)
+    router.get('/', orderController.list)
+    router.get('/:orderCode', orderController.data)
 
     return router
 }

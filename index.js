@@ -19,15 +19,16 @@ app.use(morgan('tiny'))
 
 app.get('/', async(req, res) => {
     res
-    .status(200)
-    .json({
-        status: 200,
-        message: 'Service is alive',
-        data: {
-            name: 'service-boiler',
-            isAlive: true,
-        },
-    })
+        .status(200)
+        .json({
+            status: 200,
+            code: null,
+            message: 'Service is alive',
+            data: {
+                name: 'service-boiler',
+                isAlive: true,
+            },
+        })
 })
 
 initDb(async err => {
@@ -39,6 +40,17 @@ initDb(async err => {
     // order route
     const orderRoutes = OrderRoutes()
     app.use('/order', orderRoutes)
+
+    app.use(function(_, res) {
+        res
+            .status(404)
+            .json({
+                status: 404,
+                code: null,
+                message: 'Not found',
+                data: null,
+            })
+    })
     
     app.listen(port, () => console.log(`Service listening at http://localhost:${port}`))
 })
