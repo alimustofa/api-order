@@ -66,10 +66,5 @@ module.exports = (service) => async (req, res) => {
 
     return res
         .status(200)
-        .json({
-            status: 200,
-            code: null,
-            message: 'Order list',
-            data: result.orders,
-        })
+        .json(result)
 }

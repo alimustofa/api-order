@@ -10,8 +10,8 @@ const app = express()
 // utils
 const { initDb, getEvmDbMaster } = require('./utils/db')
 // routes
-const ProductRoutes = require('./src/apiProduct/route')
-const OrderRoutes = require('./src/apiOrder/route')
+const ProductRoutes = require('./src/api-product/route')
+const OrderRoutes = require('./src/api-order/route')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

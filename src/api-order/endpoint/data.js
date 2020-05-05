@@ -63,6 +63,7 @@ module.exports = (service) => async (req, res) => {
         }
         result = await service.data(params, meta)
     } catch (e) {
+        console.log(e.code)
         apiDataOrderSpan
             .setTag(Tags.ERROR, true)
             .log({ error: e })
@@ -81,10 +82,5 @@ module.exports = (service) => async (req, res) => {
 
     return res
         .status(200)
-        .json({
-            status: 200,
-            code: null,
-            message: 'Order data',
-            data: result.order,
-        })
+        .json(result)
 }

@@ -4,7 +4,7 @@ const router = require('express').Router()
 
 const Controller = require('./controller')
 
-const ProductService = require('../product/service')
+const ProductService = require('../svc-product/service')
 
 const Route = () => {
 
